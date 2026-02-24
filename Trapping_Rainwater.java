@@ -1,22 +1,23 @@
 public class Trapping_Rainwater {
 
     public static void rainwater_trapped (int arr[]){
-        int left_max_arr[] = new int[arr.length];
-        int right_max_arr[] = new int[arr.length];
+        int n = arr.length;
+        int left_max_arr[] = new int[n];
+        int right_max_arr[] = new int[n];
 
         left_max_arr[0] = arr[0];
-        for (int i = 1; i < arr.length; i++){
+        for (int i = 1; i < n; i++){
             left_max_arr[i] = Math.max(arr[i], left_max_arr[i-1]);
         }
 
-        right_max_arr[arr.length - 1] = arr[arr.length - 1];
-        for (int i = arr.length - 2; i >= 0; i--){
+        right_max_arr[n - 1] = arr[n - 1];
+        for (int i = n - 2; i >= 0; i--){
             right_max_arr[i] = Math.max(arr[i], right_max_arr[i+1]);
         }
 
         int water_level = 0;
         int rainwater_trapped = 0;
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 0; i < n; i++){
             water_level = Math.min(left_max_arr[i], right_max_arr[i]);
             rainwater_trapped += water_level - arr[i];
         }
