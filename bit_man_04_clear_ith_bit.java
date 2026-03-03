@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class bit_man_04_clear_ith_bit {
 
     public static int clear_ith_bit (int num, int place){
-        int bitmask = ~(1 << place);
+        int bitmask = (1 << place);
         return num & bitmask;
     }
 
