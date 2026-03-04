@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class bit_man_04_clear_ith_bit {
+public class bit_man_06_clear_i_bits {
 
-    public static int clear_ith_bit (int num, int place){
-        int bitmask = ~(1 << place);
+    public static int clear_i_bit (int num, int place){
+        int bitmask = (-1 << place);
         return num & bitmask;
     }
 
@@ -15,7 +15,7 @@ public class bit_man_04_clear_ith_bit {
         System.out.print("Enter place to set bit : ");
         int place = sc.nextInt();
 
-        System.out.println(clear_ith_bit(num, place));
+        System.out.println(clear_i_bit(num, place));
 
         sc.close();
     }
