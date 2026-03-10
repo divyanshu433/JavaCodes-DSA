@@ -1,7 +1,7 @@
 public class Recursion_03_factorial {
 
     public static int calcFactorial (int n){
-        if ((n == 0) || (n == 1)){
+        if (n == 0){
             return 1;
         }
         return n * calcFactorial(n - 1);
