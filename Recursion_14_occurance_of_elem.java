@@ -2,6 +2,7 @@ public class Recursion_14_occurance_of_elem {
 
     public static int occurance_of_elem (int arr[], int idx, int key){
         int n = arr.length;
+        
         if(idx == n){
             return 0;
         }
