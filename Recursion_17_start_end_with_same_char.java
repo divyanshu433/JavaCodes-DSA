@@ -10,6 +10,6 @@ public class Recursion_17_start_end_with_same_char {
     }
 
     public static void main(String[] args) {
-        start_end_with_same_char("abcabc", 0);
+        start_end_with_same_char("abcabcs", 0);
     }
 }
