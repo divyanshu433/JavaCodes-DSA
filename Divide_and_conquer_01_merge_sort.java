@@ -50,7 +50,7 @@ public class Divide_and_conquer_01_merge_sort {
     }
 
     public static void main(String[] args) {
-        int arr[] = {6, 3, 9, 5, 2, 8};
+        int arr[] = {6, 3, 9, 5, 2, 8, 7, 8, 0};
 
         merge_sort(arr, 0, arr.length - 1);
 
