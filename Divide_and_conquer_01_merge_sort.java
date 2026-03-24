@@ -16,7 +16,6 @@ public class Divide_and_conquer_01_merge_sort {
         merge_sort(arr, si, mid);
         merge_sort(arr, mid + 1, ei);
         merge(arr, si, mid, ei);
-        
     }
 
     public static void merge (int arr[], int si, int mid, int ei){
