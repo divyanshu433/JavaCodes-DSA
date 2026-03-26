@@ -30,7 +30,7 @@ public class Divide_and_conquer_02_rotated_sorted_arr {
     }
 
     public static void main(String[] args) {
-        int arr[] = {5 ,6 ,7, 1, 2, 3, 4};
+        int arr[] = {5 ,6 ,7, 1, 2, 3, 4, 5};
         int key = 3;
         System.out.println(search(arr, key, 0, arr.length - 1));
     }
