@@ -1,4 +1,4 @@
-public class Divide_and_conquer_02_rotated_sorted_arr {
+public class Divide_and_conquer_03_rotated_sorted_arr {
 
     public static int search (int arr[], int key, int si, int ei){
         if(si >= ei){
