@@ -16,5 +16,6 @@ public class Recursion_21_factorial {
         int n = sc.nextInt();
 
         System.out.println(fact(n));
+        sc.close();
     }
 }

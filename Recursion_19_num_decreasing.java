@@ -18,5 +18,6 @@ public class Recursion_19_num_decreasing {
         int n = sc.nextInt();
 
         number_dec(n);
+        sc.close();
     }
 }

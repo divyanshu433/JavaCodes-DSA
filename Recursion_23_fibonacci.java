@@ -16,5 +16,6 @@ public class Recursion_23_fibonacci {
         int n = sc.nextInt();
 
         System.out.println(fibo(n));
+        sc.close();
     }
 }

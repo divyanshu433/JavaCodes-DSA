@@ -15,5 +15,6 @@ public class Recursion_22_sum_natural {
         int n = sc.nextInt();
 
         System.out.println(sum_natural_num(n));
+        sc.close();
     }
 }

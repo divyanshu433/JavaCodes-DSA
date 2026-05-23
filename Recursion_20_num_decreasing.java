@@ -17,5 +17,6 @@ public class Recursion_20_num_decreasing {
         int n = sc.nextInt();
 
         number_inc(n);
+        sc.close();
     }
 }
