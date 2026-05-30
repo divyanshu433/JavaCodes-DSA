@@ -52,7 +52,7 @@ public class Backtracking_05_N_Oueens_in_N_rows {
     }
 
     public static void main (String args[]){
-        int n = 4;
+        int n = 1;
         char board[][] = new char[n][n];
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
