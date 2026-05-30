@@ -8,6 +8,5 @@ public class Area_of_square{
         float area = s*s;
         System.out.print("Area of square is : "+area);
         sc.close();
-
     }
 }
