@@ -15,8 +15,8 @@ public class Backtracking_06_grid_ways {
     }
 
     public static void main(String[] args) {
-        int n = 3;
-        int m = 3;
+        int n = 4;
+        int m = 4;
 
         System.out.println(gridWays(n, m, 0, 0));
     }
