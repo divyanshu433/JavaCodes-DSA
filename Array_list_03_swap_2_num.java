@@ -13,14 +13,15 @@ public class Array_list_03_swap_2_num {
             list.add(num);
         }
 
+        System.out.println(list);
         int idx1 = 1;
         int idx2 = 3;
-        list(idx1) = list(idx1) ^ list(idx2);
-        list(idx2) = list(idx1) ^ list(idx2);
-        list(idx1) = list(idx1) ^ list(idx2);
 
-        for(int i = 0; i < list.size(); i++){
-            System.out.print(list.get(i) + " ");
-        }
+        int temp = list.get(idx1);
+        list.set(idx1, list.get(idx2));
+        list.set(idx2, temp);
+
+        System.out.println(list);
+        sc.close();
     }
 }

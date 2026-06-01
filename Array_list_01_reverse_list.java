@@ -15,5 +15,6 @@ public class Array_list_01_reverse_list {
         for(int i = list.size() - 1; i >= 0; i--){
             System.out.print(list.get(i) + " ");
         }
+        sc.close();
     }
 }
