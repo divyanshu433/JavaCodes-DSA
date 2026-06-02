@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Array_list_04_sorting {
+public class Array_list_05_sorting {
     public static void main(String[] args) {
     
     Scanner sc = new Scanner(System.in);
