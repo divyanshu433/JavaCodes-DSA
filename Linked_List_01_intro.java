@@ -24,7 +24,7 @@ public class Linked_list_01_intro {
     }
 
     public void addLast(int data){
-        y32}
+        }
 
     public static Node head;
     public static Node tail;
