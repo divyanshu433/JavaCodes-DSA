@@ -223,57 +223,120 @@ public class Linked_list_01_intro {
         return true;
     }
 
+    public static boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void removeCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false;
+        while(fast != null && head != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                System.out.println("Cycle detected");
+                cycle = true;
+                break;
+            }
+        }
+        if(cycle == false){
+            return;
+        }
+
+        slow = head;
+        Node prev = null;
+        while(slow != fast){
+            slow = slow.next;
+            prev = fast;
+            fast = fast.next;
+        }
+
+        prev.next = null;
+        return;
+
+    }
+
 
     public static Node head;
     public static Node tail;
     public static int size;
     public static void main(String[] args) {
-        Linked_list_01_intro ll = new Linked_list_01_intro();
-        ll.printLl();
-        ll.addFirst(1);
-        ll.printLl();
-        ll.addFirst(2);
-        ll.printLl();
-        ll.addLast(3);
-        ll.printLl();
-        ll.addLast(4);
-        ll.printLl();
-        ll.addInMid(2, 10);
-        ll.printLl();
-        System.out.println(ll.size);
-        ll.removeFirst();
-        ll.printLl();
-        System.out.println(ll.size);
+        // Linked_list_01_intro ll = new Linked_list_01_intro();
+        // ll.printLl();
+        // ll.addFirst(1);
+        // ll.printLl();
+        // ll.addFirst(2);
+        // ll.printLl();
+        // ll.addLast(3);
+        // ll.printLl();
+        // ll.addLast(4);
+        // ll.printLl();
+        // ll.addInMid(2, 10);
+        // ll.printLl();
+        // System.out.println(ll.size);
+        // ll.removeFirst();
+        // ll.printLl();
+        // System.out.println(ll.size);
 
-        ll.removelast();
-        ll.printLl();
-        ll.addLast(4);
-        ll.addLast(5);
-        ll.addLast(6);
-        System.out.println(ll.searchLl(3));
-        System.out.println(ll.recSearch(3));
-        ll.printLl();
-        ll.reverse();
-        ll.printLl();
-        ll.reverse();
-        ll.printLl();
-        ll.romove_from_end(4);
+        // ll.removelast();
+        // ll.printLl();
+        // ll.addLast(4);
+        // ll.addLast(5);
+        // ll.addLast(6);
+        // System.out.println(ll.searchLl(3));
+        // System.out.println(ll.recSearch(3));
+        // ll.printLl();
+        // ll.reverse();
+        // ll.printLl();
+        // ll.reverse();
+        // ll.printLl();
+        // ll.romove_from_end(4);
+        // ll.printLl();
+
+        // ll.romove_from_end(4);
+        // ll.printLl();
+        // ll.removelast();
+        // ll.removelast();
+        // ll.removelast();
+        // ll.removelast();
+        // ll.printLl();
+
+        // ll.addFirst(1);
+        // ll.addLast(2);
+        // ll.addLast(3);
+        // ll.addLast(2);
+        // ll.addLast(37);
+        // ll.printLl();
+        // System.out.println(ll.palindrome());
+
+        // System.out.println(ll.isCycle());
+
+         Linked_list_01_intro ll = new Linked_list_01_intro();
+
+        ll.head = ll.new Node(1);
+        Node temp = ll.new Node(2);
+
+        ll.head.next = temp;
+
         ll.printLl();
 
-        ll.romove_from_end(4);
-        ll.printLl();
-        ll.removelast();
-        ll.removelast();
-        ll.removelast();
-        ll.removelast();
-        ll.printLl();
+        System.out.println(isCycle());
 
-        ll.addFirst(1);
-        ll.addLast(2);
-        ll.addLast(3);
-        ll.addLast(2);
-        ll.addLast(3);
+        removeCycle();
+
         ll.printLl();
-        System.out.println(ll.palindrome());
+        System.out.println(isCycle());
+        
     }
 }
