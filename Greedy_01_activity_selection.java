@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Greedy_algo_01_activity_selection {
+public class Greedy_01_activity_selection {
 
     public static int activity_selection(int start[], int end[], ArrayList <String> list){
         int count = 0;
