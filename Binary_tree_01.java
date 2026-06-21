@@ -1,5 +1,6 @@
-import org.w3c.dom.Node;
+import java.util.*;
 
+import org.w3c.dom.Node;
 public class Binary_tree_01 {
 
     static class Node{
@@ -55,6 +56,38 @@ public class Binary_tree_01 {
             postOrder(root.right);
             System.out.print(root.data + " ");
         }
+
+        public static void levelOrder(Node root){
+            if(root == null){
+                return;
+            }
+
+            Queue <Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+
+            while(!q.isEmpty()){
+                Node curr = q.remove();
+                if(curr == null){
+                    System.out.println();
+                    if(q.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q.add(null);
+                    }
+                }
+                else{
+                    System.out.print(curr.data + " ");
+                    if(curr.left != null){
+                        q.add(curr.left);
+                    }
+                    if(curr.right != null){
+                        q.add(curr.right);
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -66,6 +99,7 @@ public class Binary_tree_01 {
         tree.inOrder(root);
         System.out.println();
         tree.postOrder(root);
-
+        System.out.println();
+        tree.levelOrder(root);
     }
 }
