@@ -159,6 +159,76 @@ public class Binary_tree_02 {
         System.out.println();
     }
 
+    public static void kthLevel(Node node, int k, int curr){
+        if(node == null){
+            return;
+        }
+        if(k == curr){
+            System.out.print(node.data + " ");
+            return;
+        }
+        kthLevel(node.left, k, curr + 1);
+        kthLevel(node.right, k, curr + 1);
+    }
+
+    public static boolean getPath(Node node,ArrayList <Node> arr, int val){
+        if(node == null){
+            return false;
+        }
+        arr.add(node);
+        if(node.data == val){
+            return true;
+        }
+
+        boolean left = getPath(node.left, arr, val);
+        boolean right = getPath(node.right, arr, val);
+
+        if(left || right){
+            return true;
+        }
+        arr.remove(arr.size() - 1);
+        return false;
+    }
+
+    public static Node lca(Node root, int n1, int n2){
+        ArrayList <Node> arr1 = new ArrayList<>();
+        ArrayList <Node> arr2 = new ArrayList<>();
+
+        getPath(root, arr1, n1);
+        getPath(root, arr2, n2);
+        int i = 0;
+        while(i < arr1.size() && i < arr2.size()){
+            if(arr1.get(i) != arr2.get(i)){
+                break;
+            }
+            i++;
+        }
+        return arr1.get(i - 1);
+
+    }
+
+    public static Node lca2(Node node, int n1, int n2){
+        if(node == null){
+            return null;
+        }
+        if(node.data == n1 || node.data == n2){
+            return node;
+        }
+
+        Node left = lca2(node.left, n1, n2);
+        Node right = lca2(node.right, n1, n2);
+
+        if(right == null){
+            return left;
+        }
+
+        if(left == null){
+            return right;
+        }
+
+        return node;
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -184,5 +254,10 @@ public class Binary_tree_02 {
 
         topView(root);
 
+        kthLevel(root, 3, 1);
+        System.out.println();
+
+        System.out.println(lca(root, 4, 5).data);
+        System.out.println(lca2(root, 4, 5).data);
     }
 }
