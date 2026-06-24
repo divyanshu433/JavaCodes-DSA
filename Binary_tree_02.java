@@ -190,6 +190,8 @@ public class Binary_tree_02 {
         return false;
     }
 
+    
+
     public static Node lca(Node root, int n1, int n2){
         ArrayList <Node> arr1 = new ArrayList<>();
         ArrayList <Node> arr2 = new ArrayList<>();
@@ -229,7 +231,96 @@ public class Binary_tree_02 {
         return node;
     }
 
+
+    public static int lcaDist(Node root, int n){
+        if(root == null){
+            return -1;
+        }
+
+        if(root.data == n){
+            return 0;
+        }
+
+        int left = lcaDist(root.left, n);
+        int right = lcaDist(root.right, n);
+
+        if(left == -1 && right == -1){
+            return -1;
+        }
+        else if(left == -1){
+            return right + 1;
+        }
+        else{
+            return left + 1;
+        }
+
+    }
+
+    public static int min_distance(Node root, int n1, int n2){
+        Node lca = lca2(root, n1, n2);
+        int distance1 = lcaDist(lca, n1);
+        int distance2 = lcaDist(lca, n2);
+
+        return distance1 + distance2;
+    }
+
+    public static int kthAncestor(Node root, int val, int n){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == val){
+            return 0;
+        }
+
+        int left = kthAncestor(root.left, val, n);
+        int right = kthAncestor(root.right, val, n);
+
+        if(left == -1 && right == -1){
+            return -1;
+        }
+
+        int max = Math.max(left, right);
+
+        if(max + 1 == n){
+            System.out.println(root.data);
+        }
+        return max + 1;
+    }
+
+    public static int sumTree(Node root){
+        if(root == null){
+            return 0;
+        }
+
+        int left = sumTree(root.left);
+        int right = sumTree(root.right);
+
+        int data = root.data;
+        int newLeft = root.left == null ? 0 : root.left.data;
+        int newRight = root.right == null ? 0 : root.right.data;
+        root.data = newLeft + left + newRight + right;
+        return data;
+    }
+
+    public static void preOrder(Node root){
+        if(root == null){
+            return;
+        }
+        System.out.print(root.data + " ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
     public static void main(String[] args) {
+
+        /*
+                1
+              /   \
+             2     3
+            / \   / \
+           4   5 6   7
+
+        */
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);
@@ -259,5 +350,14 @@ public class Binary_tree_02 {
 
         System.out.println(lca(root, 4, 5).data);
         System.out.println(lca2(root, 4, 5).data);
+
+        System.out.println();
+        System.out.println(min_distance(root, 4, 5));
+
+        System.out.println(kthAncestor(root, 4, 1));
+
+        preOrder(root);
+        System.out.println(sumTree(root));
+        preOrder(root);
     }
 }
