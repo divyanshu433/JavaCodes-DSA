@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import org.w3c.dom.Node;
 
 public class BST_01 {
@@ -53,7 +55,70 @@ public class BST_01 {
         }
     }
 
-    public static 
+    public static Node delete(Node root, int val){
+        if(root.data < val){
+            root.right = delete(root.right, val);
+        }
+        else if(root.data > val){
+            root.left = delete(root.left, val);
+        }
+        else{
+            if(root.left == null && root.right == null){
+                return null;
+            }
+
+            if(root.left == null){
+                return root.right;
+            }
+            else if(root.right == null){
+                return root.left;
+            }
+
+            Node is = findInorderSucc(root.right);
+            root.data = is.data;
+            root.right = delete(root.right, is.data);
+        }
+        return root;
+    }
+
+    public static Node findInorderSucc(Node root){
+        while(root.left != null){
+            root = root.left;
+        }
+        return root;
+    }
+
+
+    public static void printInRange(Node root, int k1, int k2){
+        if(root == null){
+            return;
+        }
+        if(k1 <= root.data && root.data <= k2){
+            printInRange(root.left, k1, k2);
+            System.out.print(root.data + " ");
+            printInRange(root.right, k1, k2);
+        }
+        else if(root.data < k1){
+            printInRange(root.left, k1, k2);
+        }
+        else{
+            printInRange(root.right, k1, k2);
+        }
+    }
+
+    public static void rootToLeafPath(Node root, ArrayList <Integer> arr){
+        if(root == null){
+            return;
+        }
+        arr.add(root.data);
+        if(root.left == null && root.right == null){
+            System.out.println(arr);
+        }
+        rootToLeafPath(root.left, arr);
+        rootToLeafPath(root.right, arr);
+        arr.remove(arr.size() - 1);
+    }
+
     public static void main(String[] args) {
         int values[] = {5, 1, 3, 4, 2, 7};
         Node root1 = null;
@@ -83,5 +148,31 @@ public class BST_01 {
         else{
             System.out.println("NOT FOUND");
         }
+
+
+        System.out.println();
+
+        int values3[] = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+        Node root3 = null;
+
+        for(int i = 0; i < values3.length; i++){
+            root3 = insert(root3, values3[i]);
+        }
+
+        inorder(root3);
+        System.out.println();
+
+        delete(root3, 5);
+        System.out.println();
+
+        inorder(root3);
+        System.out.println();
+
+        printInRange(root3, 5, 12);
+        System.out.println();
+        System.out.println();
+
+        ArrayList <Integer> arr = new ArrayList<>();
+        rootToLeafPath(root3, arr);
     }
 }
