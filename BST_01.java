@@ -145,6 +145,18 @@ public class BST_01 {
         preorder(root.right);
     }
 
+
+    public static Node createBST(int arr6[], int st, int end){
+        if(st > end){
+            return null;
+        }
+        int mid = st + (end - st) / 2;
+        Node root = new Node(arr6[mid]);
+        root.left = createBST(arr6, st, mid - 1);
+        root.right = createBST(arr6, mid + 1, end);
+        return root;
+    }
+
     public static void main(String[] args) {
         int values[] = { 5, 1, 3, 4, 2, 7 };
         Node root1 = null;
@@ -215,7 +227,9 @@ public class BST_01 {
 
 
 
-
+        int arr6[] = {3, 5, 6, 8, 10, 11, 12};
+        inorder(createBST(arr6, 0, arr6.length - 1));
+        
 
     }
 }
