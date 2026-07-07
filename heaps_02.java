@@ -46,8 +46,6 @@ public class heaps_02 {
 
                 heapyify(minIdx);
             }
-            
-            
         }
 
         public int remove(){
@@ -73,15 +71,15 @@ public class heaps_02 {
     }
 
     public static void main(String[] args) {
-        Heap h = new Heap();
-        h.add(3);
-        h.add(4);
-        h.add(1);
-        h.add(5);
+        Heap pq = new Heap();
+        pq.add(3);
+        pq.add(4);
+        pq.add(1);
+        pq.add(5);
 
-        while(!h.isEmpty()){
-            System.out.println(h.peek());
-            h.remove();
+        while(!pq.isEmpty()){
+            System.out.println(pq.peek());
+            pq.remove();
         }
     }
 }
