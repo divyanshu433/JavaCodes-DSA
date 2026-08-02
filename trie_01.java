@@ -6,7 +6,7 @@ public class trie_01 {
         Node children[] = new Node[26];
         boolean endOfWord = false;
 
-        Node(){
+        public Node(){
             for(int i = 0; i < 26; i++){
                 children[i] = null;
             }
@@ -40,10 +40,16 @@ public class trie_01 {
         return curr.endOfWord;
     }
 
-    public static boolean wordBreak(String str){
-        for(int i = 1; i <= str.length(); i++){
-            
+    public static boolean wordBreak(String key){
+        if(key.length() == 0){
+            return true;
         }
+        for(int i = 1; i <= key.length(); i++){
+            if (search(key.substring(0, i)) && wordBreak(key.substring(i))){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -60,5 +66,7 @@ public class trie_01 {
         for(int i = 0; i < arr.length; i++){
             insert(arr[i]);
         }
+
+        System.out.println(wordBreak(key));
     }
 }
